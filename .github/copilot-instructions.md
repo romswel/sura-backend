@@ -1,0 +1,1 @@
+Read `AGENTS.md` and `docs/PROJECT_MEMORY.md` before changing the Sura API. Node 24 and npm are the baseline. Run `npm run check`. Provider selection is pending; health is the only implemented API route. Do not invent working inquiries/auth/chat, public contact details, or permanent client storage. Keep credentials and private data out of source and memory.

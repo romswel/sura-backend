@@ -1,0 +1,1 @@
+Read `AGENTS.md` and `docs/PROJECT_MEMORY.md` before working. They contain the maintained Sura API instructions and current state. Shared product context is in the sibling frontend repository's `docs/PROJECT_MEMORY.md` when available.
