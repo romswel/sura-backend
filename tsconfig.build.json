@@ -2,5 +2,5 @@
   "extends": "./tsconfig.json",
   "compilerOptions": { "rootDir": "src", "outDir": "dist", "sourceMap": true },
   "include": ["src"],
-  "exclude": ["test", "dist", "node_modules"]
+  "exclude": ["test", "dist", "node_modules", "src/worker.ts"]
 }
