@@ -1,6 +1,6 @@
 # Sura backend foundation
 
-A minimal Node 24 + TypeScript API foundation for Sura. No runtime dependencies or service accounts are required. Database, authentication, inquiries, CRM, and messaging are not connected yet; the owners are selecting providers.
+A minimal Node 24 + TypeScript API foundation for Sura, with Cloudflare Workers selected for hosting. No runtime dependencies or service accounts are required for local work. Database, authentication, inquiries, CRM, and messaging are not connected yet; those providers remain undecided.
 
 ```powershell
 npm ci
@@ -27,3 +27,5 @@ Open `http://127.0.0.1:8787/api/health`. Wrangler runs locally; no Cloudflare lo
 `src/http-server.ts` owns the shared HTTP transport. Node listener limits are supplied by `src/server.ts`; Workers manages its own limits and does not support Node's `maxHeaderSize` option. `npm run typecheck` checks both entry points using separate runtime types. The Node build excludes `worker.ts`; Wrangler bundles it for local development. `.wrangler` and `.dev.vars` files are ignored. Database, auth, and inquiry delivery remain unconfigured.
 
 Read [AGENTS.md](AGENTS.md) and [API memory](docs/PROJECT_MEMORY.md) before making changes. Shared product decisions and free-service research are in the [frontend documentation](https://github.com/romswel/sura-frontend/tree/main/docs). Run each repository's commands from its own directory; there is no parent Git repository.
+
+The November 17 audit adds shared HTTP transport coverage and consistent security/cache headers on invalid requests. The owner authorized an audited push on the existing main branch and clarified that public Cloudflare URLs are not set yet. GitHub publication, CI, and local Worker checks do not establish a verified live deployment. Public release notes are maintained in the frontend at #/updates.

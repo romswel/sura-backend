@@ -11,7 +11,12 @@ export function createHttpServer(options: ServerOptions = {}) {
       response.writeHead(result.status, result.headers)
       response.end(result.body)
     } catch {
-      response.writeHead(400, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' })
+      response.writeHead(400, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'no-store',
+        'X-Content-Type-Options': 'nosniff',
+        'Referrer-Policy': 'no-referrer',
+      })
       response.end(JSON.stringify({ error: 'Invalid request' }))
     }
   })
