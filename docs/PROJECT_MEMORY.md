@@ -18,7 +18,7 @@ Sura is a two-person team starting with zero budget, aiming for its first web-de
 
 The owners selected Cloudflare Workers for the API and Pages for the website. Database/auth remain undecided. Preserve the selected host without provisioning another provider or adding costs.
 
-The owners authorized auditing both repositories, fixing issues, publishing public Updates in the frontend, and pushing the existing main branches without creating a branch. They then clarified that public URLs have not been set and requested a GitHub push for now. A source push, CI success, local Wrangler, and a bundle dry run do not verify a live Cloudflare deployment. No public API URL is available for verification.
+The owners authorized auditing both repositories, fixing issues, publishing public Updates in the frontend, and pushing the existing main branches without creating a branch. They then clarified that public URLs have not been set and requested a GitHub push for now. Both source releases were pushed. Cloudflare supplied the assigned frontend URL https://sura-frontend-3wf.pages.dev, which was verified directly. A source push, CI success, local Wrangler, and a bundle dry run do not verify public API health; no public API URL is available for verification.
 
 ## Release audit evidence
 
@@ -28,7 +28,7 @@ The owners authorized auditing both repositories, fixing issues, publishing publ
 - npm run format:check passes. npm audit including development dependencies reports zero known vulnerabilities on the audit date.
 - Wrangler deploy --dry-run bundles successfully with no bindings and does not deploy.
 - Local Wrangler HTTP probes pass: health/query 200 with not-configured integrations, HEAD 200 empty, health POST 405, inquiry POST 404, no-store and nosniff headers.
-- Earlier GitHub CI for 432131d passed. Consult current Git/GitHub for the released commit and current CI result; no deployment result is implied.
+- Backend hardening commit f42c3937e925fb3eeaba9ab30ed72d5b39c67b4e was pushed with remote hash parity. GitHub Actions run 44029292651 and the Cloudflare Workers build both passed. Consult current Git/GitHub for later release status; no public API response is implied.
 - Only blank/public .env.example may be tracked. Local environment files, .dev.vars, .wrangler, build output, node_modules, logs, and .artifacts remain ignored.
 
 Public release notes are source-managed in the frontend src/updates.ts at #/updates. Reference repositories were not modified.
